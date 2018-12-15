@@ -1,0 +1,25 @@
+
+int converte_pulso(int largura_pulso)
+{
+int pwm;
+
+pwm=map(largura_pulso,largura_minima,largura_maxima,0,255); 
+/* as variáveis "largura_minima" e"largura_maxima" serão encontradas nos osciloscópio ou no monitor serial do
+ arduino através de uma função de leitura usando pulseIn() */
+
+return pwm;
+
+}
+
+
+main()
+{
+int largura_pulso;
+int velocidade_motor;
+
+largura_pulso=pulseIn(canal) // "canal" é o pino onde está ligado o receptor do controle remoto
+
+velocidade_motor=converte_pulso(largura_pulso); // armazena o valor da largura do pulso e converte para um valor de pwm correspondente
+analogWrite(pino de velocidade,velocidade_motor) // o pino de velocidade é aquele que vai controlar o pwm do motor na ponte H
+
+}
